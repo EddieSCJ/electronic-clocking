@@ -1,10 +1,10 @@
-package com.edcleidson.eletronicclocking
+package com.edcleidson.electronicclocking
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class EletronicClockingApplicationTests {
+abstract class electronicclockingApplicationTests {
 
 	@Test
 	fun contextLoads() {
