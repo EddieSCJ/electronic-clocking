@@ -1,7 +1,7 @@
 # Read Me First
 The following was discovered as part of building this project:
 
-* The original package name 'com.edcleidson.eletronic-clocking' is invalid and this project uses 'com.edcleidson.eletronicclocking' instead.
+* The original package name 'com.edcleidson.eletronic-clocking' is invalid and this project uses 'com.edcleidson.electronicclocking' instead.
 
 # Getting Started
 
