@@ -14,5 +14,7 @@ class EmployeeServiceImpl(val employeeRepository: EmployeeRepository) : Employee
 
     override fun findByCpf(cpf: String): Employee? = employeeRepository.findByCpf(cpf)
 
+    override fun findById(id: String): Employee? = employeeRepository.findById(id).orElse(null)
+
     override fun save(employee: Employee): Employee = employeeRepository.save(employee)
 }

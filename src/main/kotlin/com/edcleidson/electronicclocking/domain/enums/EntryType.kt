@@ -1,6 +1,6 @@
 package com.edcleidson.electronicclocking.domain.enums
 
-enum class EntrieType {
+enum class EntryType {
     DAY_STARTING,
     LUNCH_STARTING,
     LUNCH_ENDING,

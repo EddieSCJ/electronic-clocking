@@ -7,5 +7,9 @@ interface EmployeeService {
 
     fun findByCpf (cpf: String): Employee?
 
+    fun findById(id: String) : Employee?
+
     fun save(employee: Employee): Employee
+
+
 }
