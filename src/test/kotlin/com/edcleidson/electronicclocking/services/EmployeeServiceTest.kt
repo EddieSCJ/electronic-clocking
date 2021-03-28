@@ -1,6 +1,7 @@
 package com.edcleidson.electronicclocking.services
 
 import com.edcleidson.electronicclocking.domain.Employee
+import com.edcleidson.electronicclocking.domain.Password
 import com.edcleidson.electronicclocking.domain.enums.Role
 import com.edcleidson.electronicclocking.repositories.EmployeeRepository
 import org.junit.jupiter.api.Assertions.assertNotNull
@@ -23,11 +24,11 @@ class EmployeeServiceTest {
     private val employeeRepository: EmployeeRepository? = null
 
     private val ID = "2321jh31ijh31igh31"
-    private val CPF: String = "13030931463"
+    private val CPF: String = "748.395.260-10"
     private val EMAIL: String = "mock@gmail.com"
 
     private val WRONG_ID = "sdkfhi1u23bikfsdui"
-    private val WRONG_CPF: String = "12233121313"
+    private val WRONG_CPF: String = "109.194.440-75"
     private val WRONG_EMAIL: String = "junim@gmail.com"
 
     @BeforeEach
@@ -83,9 +84,9 @@ class EmployeeServiceTest {
 
     private fun employee(): Employee = Employee(
         "Edcleidson Jr",
-        "mock@gmail.com",
-        "12345",
-        "13030931463",
+        EMAIL,
+        Password("12345"),
+        CPF,
         Role.ROLE_ADMIN,
         "12djsanidubef",
         12.9,
