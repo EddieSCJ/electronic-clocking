@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull
 data class Employee(
     @field:NotEmpty(message = "The name might be not empty")
     @field:Length(min = 3, max= 200, message = "The name might have a length between 3 and 200 characters")
-    val nome: String,
+    val name: String,
 
     @field:NotEmpty(message = "The email might be not empty")
     @field:Email(message = "You provided an invalid mail")

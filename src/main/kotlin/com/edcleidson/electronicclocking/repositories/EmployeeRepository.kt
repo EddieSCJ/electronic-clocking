@@ -5,8 +5,6 @@ import org.springframework.data.mongodb.repository.MongoRepository
 
 interface EmployeeRepository : MongoRepository<Employee, String> {
 
-    fun findByEmail(email: String): Employee?
-
-    fun findByCpf (cpf: String): Employee?
+    fun findByIdOrCpfOrEmail(id: String, cpf: String, email: String): Employee?
 
 }
