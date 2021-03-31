@@ -1,5 +1,6 @@
 package com.edcleidson.electronicclocking.domain
 
+import com.edcleidson.electronicclocking.domain.dto.EntryDTO
 import com.edcleidson.electronicclocking.domain.enums.EntryType
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
@@ -23,4 +24,19 @@ data class Entry(
     val description: String? = "",
     val localization: String? = "",
     @Id val id: String? = null
-)
+) {
+
+    companion object {
+        fun fromDTO(entryDTO: EntryDTO): Entry {
+            return Entry(
+                date = if (entryDTO.date == "") Date() else Date(entryDTO.date),
+                EntryType.toEnum(entryDTO.type),
+                employeeId = entryDTO.employeeId,
+                description = entryDTO.description,
+                localization = entryDTO.localization,
+                id = entryDTO.id
+            )
+        }
+    }
+
+}

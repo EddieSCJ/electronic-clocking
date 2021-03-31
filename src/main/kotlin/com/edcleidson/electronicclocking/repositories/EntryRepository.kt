@@ -9,4 +9,5 @@ interface EntryRepository : MongoRepository<Entry, String> {
 
     fun findByEmployeeId(id: String, pageable: Pageable) : Page<Entry>
 
+    fun findByIdOrEmployeeId(id: String, employeeId: String) : List<Entry>
 }
