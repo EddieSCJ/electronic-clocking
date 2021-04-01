@@ -42,13 +42,32 @@ class EntryServiceTest {
         BDDMockito.given<Page<Entry>>(entryRepository?.findByEmployeeId(WRONG_EMPLOYEE_ID, PageRequest.of(0, 10)))
             .willReturn(PageImpl(ArrayList()))
         BDDMockito.given(entryRepository?.save(entry())).willReturn(entry())
+        BDDMockito.given(entryRepository?.findByIdOrEmployeeId(ID, EMPLOYEE_ID)).willReturn(arrayListOf())
 
+    }
+
+    @Test
+    fun shouldReturnAPageWhenFindAll() {
+        val page: Page<Entry>? = entryService?.findAll(0, 10, "type", "ASC")
+        assertNotNull(page)
     }
 
     @Test
     fun shouldFindAnEntryByID() {
         val entry: Entry? = entryService?.findById(ID)
         assertNotNull(entry)
+    }
+
+    @Test
+    fun shouldFindAnEntryByIDOrEmployeeId() {
+        val entry: List<Entry>? = entryService?.findByIdOrEmployeeId(ID, EMPLOYEE_ID)
+        assertNotNull(entry)
+    }
+
+    @Test
+    fun shouldReturnEmptyListWhenFindByWrongIDOrEmployeeId() {
+        val entry: List<Entry>? = entryService?.findByIdOrEmployeeId(WRONG_ID, WRONG_EMPLOYEE_ID)
+        assertTrue(entry!!.isEmpty())
     }
 
     @Test
@@ -85,9 +104,17 @@ class EntryServiceTest {
     }
 
     @Test
-    fun shouldDeleteAnEmployee() {
+    fun shouldDeleteAnEntry() {
         entryService?.deleteById(ID)
         verify(entryRepository, times(1))?.deleteById(ID)
+    }
+
+    @Test
+    fun shouldReturnTrueWhenVerifyIfEntryExists() {
+        assertNotNull(entryService)
+
+        val entryExists: Boolean = entryService!!.entryExists(entry())
+        assertTrue(entryExists)
     }
 
     private fun entry(): Entry = Entry(Date(), EntryType.DAY_STARTING, EMPLOYEE_ID, "", "", ID)
