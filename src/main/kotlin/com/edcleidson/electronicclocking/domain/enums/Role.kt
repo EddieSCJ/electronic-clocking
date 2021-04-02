@@ -1,8 +1,8 @@
 package com.edcleidson.electronicclocking.domain.enums
 
 enum class Role(private val code: Int) {
-    ROLE_ADMIN(1),
-    ROLE_EMPLOYEE(2);
+    ADMIN(1),
+    EMPLOYEE(2);
 
     fun getCode(): Int = this.code
 

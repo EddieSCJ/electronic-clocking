@@ -1,7 +1,5 @@
 package com.edcleidson.electronicclocking.utils.helpers
 
-import com.edcleidson.electronicclocking.domain.Company
-import com.edcleidson.electronicclocking.domain.enums.Role
 import com.edcleidson.electronicclocking.domain.enums.constants.HttpResponses
 import com.edcleidson.electronicclocking.response.Response
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder

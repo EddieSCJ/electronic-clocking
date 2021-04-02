@@ -117,7 +117,7 @@ class EmployeeServiceTest {
         EMAIL,
         Password("12345"),
         CPF,
-        Role.ROLE_ADMIN,
+        Role.ADMIN,
         "12djsanidubef",
         12.9,
         8.0f,

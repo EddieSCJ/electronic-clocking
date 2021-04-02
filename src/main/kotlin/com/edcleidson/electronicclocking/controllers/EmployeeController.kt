@@ -8,7 +8,6 @@ import com.edcleidson.electronicclocking.domain.enums.constants.HttpResponses
 import com.edcleidson.electronicclocking.domain.enums.constants.HttpResponses.NOT_FOUND
 import com.edcleidson.electronicclocking.response.Response
 import com.edcleidson.electronicclocking.services.EmployeeService
-import com.edcleidson.electronicclocking.utils.helpers.BasicOperationsHelper
 import com.edcleidson.electronicclocking.utils.helpers.BasicOperationsHelper.Companion.API
 import com.edcleidson.electronicclocking.utils.helpers.BasicOperationsHelper.Companion.getValidatedResponseInstance
 import org.springframework.beans.factory.annotation.Value
@@ -84,7 +83,7 @@ class EmployeeController(val employeeService: EmployeeService) {
     ): ResponseEntity<Response<Employee>> {
         employeeDTO.id = id
         val employee: Employee = Employee.fromDto(employeeDTO)
-        val findableEmployee = Employee("", "", Password(""), "", Role.ROLE_ADMIN, "", id = id)
+        val findableEmployee = Employee("", "", Password(""), "", Role.ADMIN, "", id = id)
         val alreadyExists = employeeService.employeeExists(findableEmployee)
         val response: Response<Employee> =
             getValidatedResponseInstance(
@@ -102,7 +101,7 @@ class EmployeeController(val employeeService: EmployeeService) {
 
     @DeleteMapping("/{id}")
     fun delete(@PathVariable id: String): ResponseEntity<Response<Employee>> {
-        val findableEmployee = Employee("", "", Password(""), "", Role.ROLE_ADMIN, "", id = id)
+        val findableEmployee = Employee("", "", Password(""), "", Role.ADMIN, "", id = id)
         val alreadyExists: Boolean = employeeService.employeeExists(findableEmployee)
         val response: Response<Employee> =
             getValidatedResponseInstance(alreadyExists = alreadyExists, shouldExists = true)
